@@ -1,0 +1,39 @@
+.banner {
+	height: 150px;
+	border-bottom: 1px solid #666;
+	box-shadow: 0px 5px 5px 6px rgba(0,0,0,0.35);
+	position: relative;
+}
+.banner-wrap {
+	width: 1024px;
+	margin: 0 auto;
+	height: 100%;
+}
+.logo {
+	float: left;
+	font-size: 36px;
+}
+#poster {
+	height: 500px;
+	background: -webkit-linear-gradient(#474747 0%, #242424 100%);
+}
+.main-nav {
+	height: 50px;
+	background: -webkit-linear-gradient(#de3232 0%, #ac1a1a 100%);
+	box-shadow: 0px -5px 5px rgba(0,0,0,0.35);
+}
+.main-content {
+	width: 1024px;
+}
+.main-footer {
+	background: -webkit-linear-gradient(#222222 0%, #3e3e3e 100%);
+}
+.main-footer-wrap {
+	width: 1024px;
+	margin: 0 auto;
+}
+.botton {
+	width: 1024px;
+	margin: 0 auto;
+	height: 50px;
+}
