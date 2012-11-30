@@ -1,0 +1,126 @@
+/* @group BASIC */
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
+html, body {
+	font-family: 'Bitter', serif;
+	background: #F9FBF4;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	color: #00A8DE;
+}
+a, .transition {
+	transition: all 500ms;
+	-moz-transition: all 500ms; /* Firefox 4 */
+	-webkit-transition: all 500ms; /* Safari and Chrome */
+	-o-transition: all 500ms; /* Opera */
+}
+.bar {
+	height: 5px;
+	background: black;
+}
+#wrapper {
+	width: 720px;
+	margin: 0 auto;
+	padding: 0 90px;
+	background: url('../_image/wrapper-bg.gif') no-repeat 0 200px;
+}
+.banner {
+	width: 100%;
+	height: 200px;
+}
+.banner-logo {
+	font-size: 42px;
+	padding-top: 110px;
+}
+.banner-menu {
+	float: right;
+	font-size: 20px;
+	color: #333;
+	height: 48px;
+	line-height: 48px;
+}
+.banner-menu li {
+	float: left;
+	margin-left: 20px;
+}
+.information {
+	height: 60px;
+	font-size: 28px;
+	line-height: 60px;
+	color: white;
+}
+.search {
+	background: #00A8DE;
+}
+.search-top {
+	padding: 20px;
+	height: 40px;
+	position: relative;
+}
+.search-show {
+	
+}
+#category-button, #search-button {
+	background: #E9177D;
+	width: 140px;
+	color: white;
+	border: 0;
+}
+#category-button:hover , #search-button:hover {
+	background: #9C298C;
+	color: black;
+}
+#category-button {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	height: 40px;
+}
+#search-input {
+	width: 360px;
+	margin: 0 auto;
+	display: block;
+	height: 40px;
+	position: relative;
+	z-index: 10;
+}
+#search-button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	height: 40px;
+}
+.main {
+	height: 600px;
+	background: white;
+}
+.main-shadow {
+	background: url('../_image/shadow.png') no-repeat top;
+	height: 50px;
+}
+.footer {
+	border-top: 1px dashed #999;
+	padding-top: 20px;
+	height: 40px;
+	margin-bottom: 30px;
+	color: #999;
+	font-size: 12px;
+}
+.footer-copyright {
+	float: left;
+}
+.footer-menu {
+	float: right;
+}
+.footer-menu li {
+	float: left;
+	margin-left: 20px;
+}
+
+/* @end */
+/* @group ANIMATION */
+
+/* @end */
