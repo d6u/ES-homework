@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 	<meta charset="utf-8">
 	<title>Restaurant Review Site</title>
@@ -31,10 +32,7 @@
 			<div class="search-show"></div>
 		</div>
 		<div class="main">
-			<section class="main-sec"></section>
-			<section class="main-sec"></section>
-			<section class="main-sec"></section>
-			<section class="main-sec"></section>
+			
 		</div>
 		<div class="main-shadow"></div>
 		<div class="footer">
