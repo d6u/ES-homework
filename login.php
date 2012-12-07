@@ -3,6 +3,19 @@
 <?php
 if ( isset($_SESSION["email"]) ) {
 	redirect_to("back_end/user_panel.php");
+} elseif ( isset($_POST["login_user_email"]) ) {
+	require_once("_parts/connection.php");
+	$query = 	"SELECT email, hash_pass
+				 FROM users
+				 WHERE email = '{$_POST['login_user_email']}'";
+	$result = mysql_query($query, $mysql_connection);
+	$row = mysql_fetch_array($result);
+	if ( $row['hash_pass'] == sha1($_POST['login_user_pass'])) {
+		$_SESSION['email'] = $row['email'];
+		redirect_to('index.php');
+	} else {
+		$login_message = "User email and password does not match.";
+	}
 }
 ?>
 <?php require_once("_parts/login_header.php") ?>
@@ -29,6 +42,7 @@ if ( isset($_SESSION["email"]) ) {
 				<span>Remember Me</span>
 			</label>
 		</div>
+		<div id="login-warning"><?php if ( isset($login_message) ) echo $login_message; ?></div>
 	</form>
 </div>
 <div class="right-block">
