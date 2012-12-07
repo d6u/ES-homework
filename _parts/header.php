@@ -8,7 +8,11 @@ if ( !isset($_SESSION['email']) ) {
 	$result = mysql_query($query, $mysql_connection);
 	if ($result && mysql_num_rows($result) != 0) {
 		$row = mysql_fetch_array($result);
-		$id = $row['first'] || $row['email'];
+		if ( $row['first'] == '' ) {
+			$id = $row['email'];
+		} else {
+			$id = $row['first'];
+		}
 		$message = '<a href="back_end/user_panel.php">Hello, '. $id .'</a>';
 	} else {
 		die("How could this happen?");

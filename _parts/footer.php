@@ -16,3 +16,4 @@
 	<script src="_js/main.js"></script>
 </body>
 </html>
+<?php mysql_close($mysql_connection);

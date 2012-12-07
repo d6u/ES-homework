@@ -17,3 +17,4 @@
 	<script src="_js/login.js"></script>
 </body>
 </html>
+<?php mysql_close($mysql_connection);
