@@ -13,10 +13,24 @@
 	<div class="bar"></div>
 	<div id="wrapper" class="clearfix">
 		<div class="banner">
-			<h1 class="banner-title">Welcome to Restaurant Review Site</h1>
-			<p class="banner-introduction">This is the login/register page, please enter your username and password in the correct field.</p>
+			<h1 class="banner-title">
+				<?php if ( !isset($success) ) {
+					echo "Welcome to Restaurant Review Site";
+				} elseif ( $success == true ) {
+					echo "Congratulations! You are now a member of Restaurant Review Site!";
+				}?>
+			</h1>
+			<p class="banner-introduction">
+				<?php if ( !isset($success) ) {
+					echo "This is the login/register page, please enter your username and password in the correct field.";
+				} elseif ( $success == true ) {
+					echo "Please take some time to complete your profiles, however, you can do this later.";
+					echo "</br>";
+					echo "<a href=\"index.php\">Start suffer our coolest website?</a>";
+				}?>
+			</p>
 			<div class="banner-return-home">
-				<a href="index.php">Return Home</a>
+				<a href="index.php">Return to Homepage</a>
 			</div>
 		</div>
 		

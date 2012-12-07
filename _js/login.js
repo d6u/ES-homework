@@ -61,7 +61,7 @@
 				var valid = false;
 			}
 			if ( valid != false ) {
-				$('form[action="register_option.php"]').submit();
+				$('form[action="register.php"]').submit();
 			}
 		});
 	});

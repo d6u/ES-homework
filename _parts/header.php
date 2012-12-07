@@ -1,3 +1,21 @@
+<?php 
+if ( !isset($_SESSION['email']) ) {
+	$message = '<a href="login.php">Login/Register</a>';
+} else {
+	$query = 	"SELECT first, email
+				 FROM users
+				 WHERE email = '{$_SESSION['email']}'";
+	$result = mysql_query($query, $mysql_connection);
+	if ($result && mysql_num_rows($result) != 0) {
+		$row = mysql_fetch_array($result);
+		$id = $row['first'] || $row['email'];
+		$message = '<a href="back_end/user_panel.php">Hello, '. $id .'</a>';
+	} else {
+		die("How could this happen?");
+	}
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +37,7 @@
 			<ul class="banner-menu">
 				<li class="banner-menu-item"><a href="index.php">Home</a></li>
 				<li class="banner-menu-item"><a href="#">About</a></li>
-				<li class="banner-menu-item"><a href="login.php">Login/Register</a></li>
+				<li class="banner-menu-item"><?php echo $message; ?></li>
 			</ul>
 		</div>
 		<div class="information">Home</div>

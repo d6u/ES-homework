@@ -1,3 +1,10 @@
+<?php require_once("_parts/session.php"); ?>
+<?php require_once("_parts/functions.php"); ?>
+<?php
+if ( isset($_SESSION["email"]) ) {
+	redirect_to("back_end/user_panel.php");
+}
+?>
 <?php require_once("_parts/login_header.php") ?>
 
 <div class="left-block">
