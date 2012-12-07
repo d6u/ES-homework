@@ -17,6 +17,10 @@ a, .transition {
 	-webkit-transition: all 500ms; /* Safari and Chrome */
 	-o-transition: all 500ms; /* Opera */
 }
+a.underline-achor {
+	text-decoration: underline;
+	font-weight: bold;
+}
 .bar {
 	height: 5px;
 	background: black;
@@ -34,11 +38,15 @@ a, .transition {
 	font-size: 42px;
 	text-align: center;
 }
-.banner-introduction {
+.banner-introduction,
+.register-introduction {
 	padding: 30px 100px;
 	font-size: 18px;
 	line-height: 24px;
 	color: #666;
+}
+.register-introduction {
+	color: #333290;
 }
 .banner-return-home {
 	text-align: right;
@@ -56,7 +64,8 @@ a, .transition {
 	font-size: 32px;
 	margin: 20px 0 20px;
 }
-.input-form {
+.input-form,
+.profile-form {
 	width: 280px;
 	margin: 0 40px 40px;
 	padding: 20px;
@@ -90,12 +99,33 @@ a, .transition {
 	float: right;
 	width: 400px;
 }
-#register-warning {
+#register-warning,
+#login-warning {
 	font-size: 18px;
 	line-height: 24px;
 	color: red;
 }
 /* MIDDLE END */
+/* @group REGISTER PROFILE */
+.profile-form {
+	margin: 40px auto 40px;
+}
+.profile-form label[for="male"],
+.profile-form label[for="female"] {
+	line-height: 24px;
+	width: 140px;
+	float: left;
+}
+.profile-form label[for="female"] {
+	float: right;
+}
+.profile-form input[type="radio"] {
+	width: 20px;
+}
+.profile-form input[type="date"] {
+	line-height: 24px;
+}
+/* @end */
 /* @group FOOTER */
 .footer {
 	border-top: 1px dashed #999;

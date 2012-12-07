@@ -5,11 +5,11 @@
 	}
 	
 	// Register behavior
-	$('.middle').on('change', 'input[type="text"], input[type="password"]', function () {
+	$('.right-block').on('change', 'input[type="text"], input[type="password"]', function () {
 		$('#register-warning').empty();
 	})
 	.on('change', '#register_user_email', function () {
-		var email = $(this).val();
+		var email = $.trim($(this).val());
 		if ( email != "" && !validateEmail(email) ) {
 			$('#register-warning').html("Email address is not valid.");
 		} else if ( validateEmail(email) ) {
@@ -34,8 +34,8 @@
 			$('#register-warning').html("Password doesn't match.");
 		}
 	})
-	.on('click', '#register_submit', function (event) {
-		var email = $('#register_user_email').val(),
+	.on('submit', 'form[action="register.php"]', function (event) {
+		var email = $.trim($('#register_user_email').val()),
 			pass = $('#register_user_pass').val(),
 			pass_r = $('#register_user_pass_repeat').val(),
 			url = "ajax_support/user_exist.php",
@@ -65,7 +65,31 @@
 			}
 		});
 	});
-	
 	// Login behavior
-	
+	$('.left-block').on('change', 'input[type="text"], input[type="password"]', function () {
+		$('#login-warning').empty();
+	})
+	.on('change', '#login_user_email', function () {
+		var email = $.trim($(this).val());
+		if ( !validateEmail(email) ) {
+			$('#login-warning').html("Email address is not valid.");
+		}
+	})
+	.on('submit', 'form[action="login.php"]', function (event) {
+		var email = $.trim($('#login_user_email').val()),
+			pass = $('#login_user_pass').val();
+		if ( email == '' ) {
+			$('#login-warning').html("Email can't be empty.");
+			var valid = false;
+		} else if ( !validateEmail(email) ) {
+			$('#login-warning').html("Email address is not valid.");
+			var valid = false;
+		} else if ( pass == '' ) {
+			$('#login-warning').html("Password can't be empty.");
+			var valid = false;
+		}
+		if ( valid == false ) {
+			event.preventDefault();
+		}
+	});
 })();

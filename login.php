@@ -1,21 +1,31 @@
 <?php require_once("_parts/session.php"); ?>
 <?php require_once("_parts/functions.php"); ?>
 <?php
-if ( isset($_SESSION["email"]) ) {
-	redirect_to("back_end/user_panel.php");
-} elseif ( isset($_POST["login_user_email"]) ) {
-	require_once("_parts/connection.php");
+$login_title = "Login/Register";
+$login_header = "Welcome to Restaurant Review Site";
+$login_message = "This is the login/register page, please enter your username and password in related field.";
+$login_message_style = "banner-introduction";
+
+if ( isset($_POST["login_user_email"]) && isset($_POST["login_user_pass"]) ) {
+	// user login
+	require_once("_parts/connection.php"); // $mysql_connection
+	$email = trim($_POST["login_user_email"]);
 	$query = 	"SELECT email, hash_pass
 				 FROM users
-				 WHERE email = '{$_POST['login_user_email']}'";
+				 WHERE email = '{$email}'";
 	$result = mysql_query($query, $mysql_connection);
 	$row = mysql_fetch_array($result);
-	if ( $row['hash_pass'] == sha1($_POST['login_user_pass'])) {
-		$_SESSION['email'] = $row['email'];
+	if ( $row['hash_pass'] == sha1($_POST['login_user_pass']) ) {
+		$_SESSION["email"] = $email;
+		// if ( isset($_POST["rememberme"]) ) $_SESSION["rememberme"] = $_POST["rememberme"]; // forever
 		redirect_to('index.php');
 	} else {
-		$login_message = "User email and password does not match.";
+		$login_warning = "User email and password does not match.";
+		$last_email = $email;
 	}
+} elseif ( isset($_SESSION["email"]) ) {
+	// user already logged in
+	redirect_to("backend/user_panel.php");
 }
 ?>
 <?php require_once("_parts/login_header.php") ?>
@@ -26,7 +36,7 @@ if ( isset($_SESSION["email"]) ) {
 		<div class="input-section">
 			<label for="login_user_email">
 				<div>Email Address</div>
-				<input type="text" name="login_user_email" id="login_user_email" tabindex="10">
+				<input type="text" name="login_user_email" id="login_user_email" value="<?php if ( isset($last_email) ) echo $last_email; ?>" tabindex="10">
 			</label>
 		</div>
 		<div class="input-section">
@@ -38,11 +48,11 @@ if ( isset($_SESSION["email"]) ) {
 		<div class="input-section-bottom clearfix">
 			<input type="submit" name="login_submit" id="login_submit" class="blue-button" value="Log In" tabindex="40">
 			<label for="rememberme">
-				<input type="checkbox" name="remember_me" id="rememberme" value="forever" tabindex="30">
+				<input type="checkbox" name="rememberme" id="rememberme" value="forever" tabindex="30" checked="checked">
 				<span>Remember Me</span>
 			</label>
 		</div>
-		<div id="login-warning"><?php if ( isset($login_message) ) echo $login_message; ?></div>
+		<div id="login-warning"><?php if ( isset($login_warning) ) echo $login_warning; ?></div>
 	</form>
 </div>
 <div class="right-block">
