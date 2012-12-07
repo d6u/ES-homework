@@ -26,6 +26,12 @@ if ( isset($_POST["login_user_email"]) && isset($_POST["login_user_pass"]) ) {
 } elseif ( isset($_SESSION["email"]) ) {
 	// user already logged in
 	redirect_to("backend/user_panel.php");
+} elseif ( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
+	// redirected from logout
+	$login_title = "Login/Register";
+	$login_header = "You have successfully logged out Restaurant Review Site";
+	$login_message = "We will miss you...";
+	$login_message_style = "banner-introduction";
 }
 ?>
 <?php require_once("_parts/login_header.php") ?>

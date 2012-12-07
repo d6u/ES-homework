@@ -1,19 +1,19 @@
 <?php 
-if ( !isset($_SESSION['email']) ) {
-	$message = '<a href="login.php">Login/Register</a>';
-} else {
-	$query = 	"SELECT first, email
-				 FROM users
-				 WHERE email = '{$_SESSION['email']}'";
+if ( isset($_SESSION['email']) ) {
+	// user logged in
+	$query = "SELECT first, email
+			  FROM users
+			  WHERE email = '{$_SESSION['email']}'";
 	$result = mysql_query($query, $mysql_connection);
 	if ($result && mysql_num_rows($result) != 0) {
 		$row = mysql_fetch_array($result);
 		if ( $row['first'] == '' ) {
-			$id = $row['email'];
+			// first name is not set
+			$display_name = $row['email'];
 		} else {
-			$id = $row['first'];
+			// first name is set
+			$display_name = $row['first'];
 		}
-		$message = '<a href="back_end/user_panel.php">Hello, '. $id .'</a>';
 	} else {
 		die("How could this happen?");
 	}
@@ -41,7 +41,18 @@ if ( !isset($_SESSION['email']) ) {
 			<ul class="banner-menu">
 				<li class="banner-menu-item"><a href="index.php">Home</a></li>
 				<li class="banner-menu-item"><a href="#">About</a></li>
-				<li class="banner-menu-item"><?php echo $message; ?></li>
+				<li class="banner-menu-item">
+				<?php if ( isset($display_name) ): ?>
+					<span>Hello! </span>
+					<a href="backend/user_panel.php"><?php echo $display_name; ?></a>
+				</li>
+				<li class="banner-menu-item">
+					<a href="logout.php">Log Out</a>
+				<?php endif; ?>
+				<?php if ( !isset($display_name) ): ?>
+					<a href="login.php">Login/Register</a>
+				<?php endif; ?>
+				</li>
 			</ul>
 		</div>
 		<div class="information">Home</div>

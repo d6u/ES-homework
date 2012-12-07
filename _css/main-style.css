@@ -40,11 +40,19 @@ a, .transition {
 	font-size: 20px;
 	color: #333;
 	height: 48px;
-	line-height: 48px;
+	line-height: 32px;
+	padding: 0 8px;
 }
 .banner-menu li {
 	float: left;
-	margin-left: 20px;
+	margin-right: 10px;
+	padding-right: 10px;
+	border-right: 1px dotted #999;
+}
+.banner-menu li:last-child {
+	border-right: none;
+	margin-right: 0;
+	padding-right: 0;
 }
 .information {
 	height: 60px;
