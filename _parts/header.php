@@ -44,7 +44,7 @@ if ( isset($_SESSION['email']) ) {
 				<li class="banner-menu-item">
 				<?php if ( isset($display_name) ): ?>
 					<span>Hello! </span>
-					<a href="backend/user_panel.php"><?php echo $display_name; ?></a>
+					<a href="user_panel.php"><?php echo $display_name; ?></a>
 				</li>
 				<li class="banner-menu-item">
 					<a href="logout.php">Log Out</a>
@@ -55,7 +55,7 @@ if ( isset($_SESSION['email']) ) {
 				</li>
 			</ul>
 		</div>
-		<div class="information">Home</div>
+		<div class="information"><?php echo $current_page; ?></div>
 		<div class="search">
 			<div class="search-top">
 				<input type="button" id="category-button" class="transition" value="Show Category" />

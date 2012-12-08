@@ -1,3 +1,5 @@
+/* @override */
+
 /* @group BASIC */
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
 html, body {
@@ -102,7 +104,6 @@ a, .transition {
 	height: 40px;
 }
 .main {
-	height: 600px;
 	background: white;
 }
 .main-shadow {
@@ -132,3 +133,78 @@ a, .transition {
 /* @group ANIMATION */
 
 /* @end */
+/* @group user panel */
+.user-inner {
+	padding: 40px;
+}
+#inner-profile-edit {
+	display: none;
+}
+.inner-left,
+.inner-right {
+	width: 300px;
+	float: left;
+}
+.inner-right {
+	float: right;
+}
+.pic-wrapper {
+	width: 298px;
+	height: 298px;
+	border: 1px solid #d6d6d6;
+	box-shadow: 0px 2px 2px #999;
+}
+.pic-wrapper img {
+	width: 298px;
+	height: 298px;
+}
+.profile-block {
+	font-size: 20px;
+	line-height: 32px;
+}
+.profile-block h4 {
+	font-size: 16px;
+	color: #999;
+}
+.profile-block-bottom {
+	margin-top: 40px;
+}
+.profile-block-bottom input {
+	margin: 0 auto;
+}
+.profile-block div {
+	font-size: 16px;
+	color: #999;
+}
+label[for="male"], 
+label[for="female"] {
+	width: 125px;
+	display: inline-block;
+}
+/* @end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

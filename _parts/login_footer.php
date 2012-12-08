@@ -1,4 +1,4 @@
-		</div>
+</div>
 		<!-- MIDDLE END -->
 		
 		<div class="footer">
@@ -17,4 +17,4 @@
 	<script src="_js/login.js"></script>
 </body>
 </html>
-<?php mysql_close($mysql_connection);
+<?php if (isset($mysql_connection)) mysql_close($mysql_connection);

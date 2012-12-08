@@ -14,7 +14,7 @@ $login_message_style = "register-introduction";
 
 if ( isset($_SESSION["email"]) ) {
 	// user already login
-	redirect_to('backend/user_panel.php');
+	redirect_to('user_panel.php');
 } else if ( isset($_POST['register_user_email']) ) {
 	// user register
 	$user_email = trim($_POST['register_user_email']);
@@ -36,7 +36,7 @@ if ( isset($_SESSION["email"]) ) {
 <?php require_once("_parts/login_header.php") ?>
 
 <h2 class="form-title">Complete your profile</h2>
-<form class="profile-form" method="post" action="backend/user_panel.php">
+<form class="profile-form" method="post" action="user_panel.php">
 	<div class="input-section">
 		<label for="user_first">
 			<div>First Name</div>
@@ -52,11 +52,11 @@ if ( isset($_SESSION["email"]) ) {
 	<div class="input-section clearfix">
 		<div>Gender</div>
 		<label for="male">
-			<input type="radio" name="gender" id="male" value="male" tabindex="30" />
+			<input type="radio" name="gender" id="male" value="m" tabindex="30" />
 			<span>Male</span>
 		</label>
 		<label for="female">
-			<input type="radio" name="gender" id="female" value="female" tabindex="40" />
+			<input type="radio" name="gender" id="female" value="f" tabindex="40" />
 			<span>Female</span>
 		</label>
 	</div>
@@ -65,6 +65,9 @@ if ( isset($_SESSION["email"]) ) {
 			<div>Date of Birth</div>
 			<input type="date" name="user_dob" id="user_dob" tabindex="50">
 		</label>
+	</div>
+	<div class="input-section-bottom clearfix">
+		<input type="submit" name="submit" id="submit" class="blue-button" value="Submit" tabindex="60">
 	</div>
 </form>
 

@@ -1,0 +1,23 @@
+<?php
+require_once("../_parts/connection.php"); // $mysql_connection
+
+if ( isset($_POST['load']) && $_POST['load'] == true ) {
+	// load data
+	$query = "SELECT * FROM users WHERE email = \"{$_POST['email']}\"";
+	$result = mysql_query($query, $mysql_connection);
+	
+	if (mysql_num_rows($result) == 0) {
+		mysql_error();
+		die("How could this happen?");
+	} else {
+		// function successful
+		$row = mysql_fetch_array($result);
+		$json = array('first' => $row['first'], 'last' => $row['last'], 'gender' => $row['gender'], 'dob' => $row['date_of_birth']);
+		echo json_encode($json);
+	}
+} else {
+	// write data
+	
+}
+
+mysql_close($mysql_connection);
