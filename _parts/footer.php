@@ -1,4 +1,4 @@
-</div>
+		</div>
 		<div class="main-shadow"></div>
 		<div class="footer">
 			<p class="footer-copyright">@Copyright Reserved</p>
@@ -16,6 +16,7 @@
 	<?php
 	switch ($file_name) {
 		case 'index':
+		case 'restaurant':
 			echo '<script src="_js/main.js"></script>';
 			break;
 		case 'user_panel':

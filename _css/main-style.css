@@ -225,7 +225,42 @@ label[for="female"] {
 	display: inline-block;
 }
 /* @end */
-
+/* @group restaurant */
+.r-pic-wrapper {
+	width: 720px;
+	height: 300px;
+	overflow: hidden;
+}
+.r-pic-wrapper img {
+	width: 720px;
+}
+.r-content-wrapper {
+	padding: 20px;
+}
+.r-name {
+	font-size: 46px;
+	margin-bottom: 10px;
+}
+.r-cat {
+	font-size: 20px;
+}
+.r-address,
+.r-tell {
+	text-align: right;
+	color: #666;
+	margin-bottom: 10px;
+}
+.hr-line {
+	height: 1px;
+	border: none;
+	background: #333;
+	margin-bottom: 40px;
+}
+.r-desc {
+	padding: 0 40px;
+	margin-bottom: 60px;
+}
+/* @end */
 
 
 
