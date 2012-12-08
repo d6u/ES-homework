@@ -10,7 +10,13 @@ if ( isset($_SESSION['email']) ) {
 		// submitting changes in profile
 		$first = trim($_POST['user_first']);
 		$last = trim($_POST['user_last']);
-		$gender = $_POST['gender'];
+		
+		if ( isset($_POST['gender']) ) {
+			$gender = $_POST['gender'];
+		} else {
+			$gender = "";
+		}
+		
 		$dob = $_POST['user_dob'];
 		
 		if ( $first != "" ) {
