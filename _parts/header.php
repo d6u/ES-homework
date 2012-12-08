@@ -36,7 +36,7 @@ if ( isset($_SESSION['email']) ) {
 	<div id="wrapper">
 		<div class="banner">
 			<div class="banner-logo">
-				<a href="">Restaurant Review</a>
+				<a href="index.php">Restaurant Review</a>
 			</div>
 			<ul class="banner-menu">
 				<li class="banner-menu-item"><a href="index.php">Home</a></li>

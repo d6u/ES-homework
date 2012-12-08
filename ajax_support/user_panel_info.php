@@ -17,7 +17,48 @@ if ( isset($_POST['load']) && $_POST['load'] == true ) {
 	}
 } else {
 	// write data
-	
+	if ( $_POST['first'] != "" ) {
+		$query = "UPDATE users
+				  SET first = '{$_POST['first']}'
+				  WHERE email = '{$_POST['email']}'";
+		$result = mysql_query($query, $mysql_connection);
+		if ( !$result ) {
+			mysql_error();
+			die("How could this happen?");
+		}
+	}
+	if ( $_POST['last'] != "" ) {
+		$query = "UPDATE users
+				  SET last = '{$_POST['last']}'
+				  WHERE email = '{$_POST['email']}'";
+		$result = mysql_query($query, $mysql_connection);
+		if ( !$result ) {
+			mysql_error();
+			die("How could this happen?");
+		}
+	}
+	if ( $_POST['gender'] != "" ) {
+		$query = "UPDATE users
+				  SET gender = '{$_POST['gender']}'
+				  WHERE email = '{$_POST['email']}'";
+		$result = mysql_query($query, $mysql_connection);
+		if ( !$result ) {
+			mysql_error();
+			die("How could this happen?");
+		}
+	}
+	if ( $_POST['dob'] != "" ) {
+		$query = "UPDATE users
+				  SET date_of_birth = '{$_POST['dob']}'
+				  WHERE email = '{$_POST['email']}'";
+		$result = mysql_query($query, $mysql_connection);
+		if ( !$result ) {
+			mysql_error();
+			die("How could this happen?");
+		}
+	}
+	$json = array('success' => true);
+	echo json_encode($json);
 }
 
 mysql_close($mysql_connection);
