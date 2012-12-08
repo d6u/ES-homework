@@ -1,5 +1,6 @@
 <?php
 require_once("../_parts/connection.php"); // $mysql_connection
+require_once("../_parts/functions.php");
 
 if ( isset($_POST['load']) && $_POST['load'] == true ) {
 	// load data

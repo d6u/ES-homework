@@ -1,4 +1,5 @@
 <?php require_once("../_parts/connection.php") ?>
+<?php require_once("../_parts/functions.php") ?>
 <?php
 if ( $_POST['search'] != "" ) {
 	// search query
@@ -19,6 +20,7 @@ if ( $_POST['search'] != "" ) {
 			}
 		}
 		$json = array('found' => true, 'restaurant' => $restaurant);
+//		print_r($json);
 		echo json_encode($json);
 	} else {
 		$json = array('found' => false);

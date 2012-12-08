@@ -36,7 +36,7 @@
 			
 			$.post(url, data, function (response) {
 				$('#search-result-restaurant-list').empty();
-				var json = JSON.parse(response);
+				var json = $.parseJSON(response);
 				if ( json.found != false ) {
 					for (var i = 0; i < json.restaurant.length; i++) {
 						var id = json.restaurant[i].r_id,

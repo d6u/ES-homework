@@ -1,5 +1,6 @@
 <?php
 require_once("../_parts/connection.php"); // $mysql_connection
+require_once("../_parts/functions.php");
 
 $query = "SELECT * FROM users WHERE email = \"{$_POST['email']}\"";
 $result = mysql_query($query, $mysql_connection);

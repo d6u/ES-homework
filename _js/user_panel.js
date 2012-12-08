@@ -8,7 +8,7 @@
 		
 		$.post(url, data, function (response) {
 			console.log(response);
-			var info = JSON.parse(response);
+			var info = $.parseJSON(response);
 			// first and last
 			$('#user_first').val(info.first);
 			$('#user_last').val(info.last);
