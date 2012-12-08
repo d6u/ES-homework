@@ -1,4 +1,5 @@
-/* @override */
+/* @override
+	http://localhost/ES-homework/_css/main-style.css */
 
 /* @group BASIC */
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
@@ -64,24 +65,66 @@ a, .transition {
 }
 .search {
 	background: #00A8DE;
+	transition: all 400ms;
+	-moz-transition: all 400ms; /* Firefox 4 */
+	-webkit-transition: all 400ms; /* Safari and Chrome */
+	-o-transition: all 400ms; /* Opera */
+}
+.search-color {
+	background: #333290;
 }
 .search-top {
 	padding: 20px;
 	height: 40px;
 	position: relative;
 }
+/* AJAX search show */
 .search-show {
-	
+	overflow: hidden;
+	height: 0;
 }
-#category-button, #search-button {
+#search-message {
+	padding: 20px;
+	font-size: 22px;
+	line-height: 40px;
+	color: white;
+	border-bottom: 1px solid #00A8DE;
+}
+.search-result-item {
+	height: 44px;
+	font-size: 20px;
+	line-height: 32px;
+	border-bottom: 1px solid #00A8DE;
+	color: white;
+}
+.search-result-item:hover {
 	background: #E9177D;
+}
+.search-result-item a {
+	padding: 6px 10px;
+	display: block;
+}
+.search-result-item a:hover {
+	color: white;
+}
+.search-result-name {
+	float: left;
+	margin-left: 20px;
+}
+.search-result-addr {
+	color: #999;
+	font-size: 16px;
+	float: right;
+}
+/* end */
+#category-button, #search-button {
+	background: #177c9b;
 	width: 140px;
 	color: white;
 	border: 0;
 }
 #category-button:hover , #search-button:hover {
-	background: #9C298C;
-	color: black;
+	background: #EA2B3B;
 }
 #category-button {
 	position: absolute;

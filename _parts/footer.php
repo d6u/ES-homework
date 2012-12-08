@@ -13,7 +13,7 @@
 	<!-- Javascript -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="_js/jquery-1.8.2.min.js"><\/script>')</script>
-	<?php 
+	<?php
 	switch ($file_name) {
 		case 'index':
 			echo '<script src="_js/main.js"></script>';
