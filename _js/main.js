@@ -71,7 +71,7 @@
 							d_name = json.dish[i].d_name,
 							r_name = json.dish[i].r_name,
 							li = $(document.createElement('li')).addClass('search-result-item'),
-							achor = $(document.createElement('a')).attr({href: 'restaurant.php?id='+r_id+'&dish='+d_id}).addClass('clearfix'),
+							achor = $(document.createElement('a')).attr({href: 'restaurant.php?id='+r_id+'#dish_'+d_id}).addClass('clearfix'),
 							name_span = $(document.createElement('span')).addClass('search-result-name').html(d_name),
 							addr_span = $(document.createElement('span')).addClass('search-result-addr').html(r_name);
 						li.append(achor.append(name_span, addr_span));
@@ -133,4 +133,9 @@
 			detail.slideDown(200);
 		});
 	});
+	
+	// jump to dish
+	var jumpToDish = window.location.hash.replace('#', '');
+	console.log(jumpToDish);
+	$('#'+jumpToDish).trigger('click');
 })();
