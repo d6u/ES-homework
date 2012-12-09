@@ -37,7 +37,9 @@
 			$.post(url, data, function (response) {
 				$('#search-result-restaurant-list').empty();
 				var json = $.parseJSON(response);
-				if ( json.found != false ) {
+				
+				// restaurant
+				if ( json.restaurant != false ) {
 					for (var i = 0; i < json.restaurant.length; i++) {
 						var id = json.restaurant[i].r_id,
 							name = json.restaurant[i].r_name,
@@ -50,9 +52,23 @@
 						$('#search-result-restaurant-list').append(li);
 					}
 				} // end if
+				
+				// dish
+				if ( json.dish != false ) {
+					for (var i = 0; i < json.dish.length; i++) {
+						var r_id = json.dish[i].r_id,
+							d_id = json.dish[i].d_id,
+							d_name = json.dish[i].d_name,
+							r_name = json.dish[i].r_name,
+							li = $(document.createElement('li')).addClass('search-result-item'),
+							achor = $(document.createElement('a')).attr({href: 'restaurant.php?id='+r_id+'&dish='+d_id}).addClass('clearfix'),
+							name_span = $(document.createElement('span')).addClass('search-result-name').html(d_name),
+							addr_span = $(document.createElement('span')).addClass('search-result-addr').html(r_name);
+						li.append(achor.append(name_span, addr_span));
+						$('#search-result-restaurant-list').append(li);
+					}
+				}
 			}); // end ajax
 		} // end if
 	}); // end of on key up
-	
-	
 })();

@@ -1,39 +1,47 @@
 <?php require_once("../_parts/connection.php") ?>
 <?php require_once("../_parts/functions.php") ?>
 <?php
-if ( $_POST['search'] != "" ) {
-	// search query
+if ( isset($_POST['search']) && $_POST['search'] != "" ) {
 	// search restaurants
 	$query = "SELECT r_id, r_name, r_address
 			  FROM restaurants
-			  WHERE r_name LIKE '%{$_POST['search']}%'";
+			  WHERE r_name LIKE '%{$_POST['search']}%'
+			  LIMIT 5";
 	$result = mysql_query($query, $mysql_connection);
-	if ( $result && mysql_num_rows($result) != 0 ) {
-		$counter = 0;
-		$restaurant = array();
-		while ( $row = mysql_fetch_array($result) ) {
-			array_push($restaurant, $row);
-			if ( $counter > 4 ) {
-				break;
-			} else {
-				$counter ++;
+	if ( $result ) {
+		$num = mysql_num_rows($result);
+		if ( $num > 0 ) {
+			$restaurant = array();
+			for ($i = 0; $i < $num; $i++) {
+				$row = mysql_fetch_array($result);
+				array_push($restaurant, $row);
 			}
+		} else {
+			$restaurant = false;
 		}
-		$json = array('found' => true, 'restaurant' => $restaurant);
-//		print_r($json);
-		echo json_encode($json);
-	} else {
-		$json = array('found' => false);
-		echo json_encode($json);
-	}
-	
-	
-	
+	} // end of $result
 	
 	// search dishes
+	$query = "SELECT d_id, d_name, d.r_id, r.r_name
+			  FROM dishes d, restaurants r
+			  WHERE d.r_id = r.r_id
+			  AND d_name LIKE '%{$_POST['search']}%'
+			  LIMIT 5";
+	$result = mysql_query($query, $mysql_connection);
+	if ( $result ) {
+		$num = mysql_num_rows($result);
+		if ( $num > 0 ) {
+			$dish = array();
+			for ($i = 0; $i < $num; $i++) {
+				$row = mysql_fetch_array($result);
+				array_push($dish, $row);
+			}
+		} else {
+			$dish = false;
+		}
+	} // end of $result
 	
-	
-	
-	
-	// search users
+	// send result
+	$json = array('restaurant' => $restaurant, 'dish' => $dish);
+	echo json_encode($json);
 }
