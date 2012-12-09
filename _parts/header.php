@@ -60,7 +60,7 @@ if ( isset($_SESSION['email']) ) {
 			<div class="search-top">
 				<input type="button" id="category-button" class="transition" value="Show Category" />
 				<input type="text" id="search-input" placeholder="Search for Favorite" />
-				<input type="button" id="search-button" class="transition" value="Feeling Hungry" />
+				<input type="button" id="random-button" class="transition" value="Feeling Hungry" />
 			</div>
 			<div class="search-show">
 				<div id="search-message"></div>

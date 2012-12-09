@@ -83,8 +83,24 @@
 				}
 			}); // end ajax
 		} else if ( input == "" && input != last_input ) {
+			// clear result if input is empty
 			last_input = input;
 			$('#search-result-restaurant-list').empty();
 		}
 	}); // end of on key up
+	
+	// show category button
+	$("#category-button").on('click', function () {
+		
+	});
+	
+	// random pick restaurant
+	$("#random-button").on('click', function () {
+		var url = "ajax_support/random_restaurant.php",
+			data = {'random': true};
+		$.post(url, data, function (response) {
+			var id = JSON.parse(response).restaurant.r_id;
+			window.location = "restaurant.php?id="+id+"";
+		});
+	});
 })();

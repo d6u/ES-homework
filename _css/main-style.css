@@ -132,13 +132,13 @@ a, .transition {
 	float: right;
 }
 /* end */
-#category-button, #search-button {
+#category-button, #random-button {
 	background: #177c9b;
 	width: 140px;
 	color: white;
 	border: 0;
 }
-#category-button:hover , #search-button:hover {
+#category-button:hover , #random-button:hover {
 	background: #EA2B3B;
 }
 #category-button {
@@ -155,7 +155,7 @@ a, .transition {
 	position: relative;
 	z-index: 10;
 }
-#search-button {
+#random-button {
 	position: absolute;
 	top: 20px;
 	right: 20px;
