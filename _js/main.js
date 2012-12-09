@@ -105,4 +105,32 @@
 			window.location = "restaurant.php?id="+id+"";
 		});
 	});
+	
+	// ajax show dish information
+	$(".dish-achor").on('click', function (event) {
+		event.preventDefault();
+		var index = $(this).index(),
+			pos = index % 3,
+			select = ( index - pos ) / 3,
+			detail = $('.detail-block:eq('+select+')'),
+			dish_id = $(this).attr('id').replace('dish_', ''),
+			url = "ajax_support/dish_detail.php",
+			data = {'dish': dish_id},
+			that = this;
+		
+		$.post(url, data, function (response) {
+			console.log(response);
+			
+			$('.dish-achor').removeClass('dish-achor-select');
+			$('.detail-block').slideUp(200).empty();
+			
+			var json = JSON.parse(response),
+				cat_div = $(document.createElement('div')).addClass('dish-detail-block-cat').html(json.dish.d_cat),
+				desc_div = $(document.createElement('div')).addClass('dish-detail-block-desc').html(json.dish.d_desc);
+			
+			$(that).addClass('dish-achor-select');
+			detail.append(cat_div, desc_div);
+			detail.slideDown(200);
+		});
+	});
 })();

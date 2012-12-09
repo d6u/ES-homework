@@ -27,7 +27,7 @@ if ( !isset($_GET['id']) ) {
 		$desc = $row['r_desc'];
 	}
 	if ( $row['r_pic_url'] != "" ) {
-		$pic_url = $row['r_pic_url'];
+		$pic_url = "restaurant_image/".$row['r_pic_url']; // need extension
 	} else {
 		$pic_url = "_image/restaurant_default.jpeg";
 	}
@@ -65,18 +65,26 @@ if ( !isset($_GET['id']) ) {
 <div class="r-dishes-wrapper clearfix">
 	<?php 
 	if ( !is_null($dishes) ) {
-		foreach ($dishes as $dish) {
-			$div = '<a class="dish-achor" href="dish.php?id='.$dish['d_id'].'"><div class="dish">';
+		$length = count($dishes) - 1;
+		foreach ($dishes as $key => $dish) {
+			$div = '<a class="dish-achor" id="dish_'.$dish['d_id'].'" href="#"><div class="dish">';
 			if ( $dish['d_pic_url'] == "" ) {
 				$div .= '<img src="_image/dish_default.jpeg" alt="Dish Picture" />';
 			} else {
-				$div .= '<img src="'.$dish['d_pic_url'].'" alt="Dish Picture" />';
+				$div .= '<img src="dish_image/'.$dish['d_pic_url'].'" alt="Dish Picture" />';
 			}
 			$div .= '<div class="dish-info">';
 			$div .= '<h4 class="dish-name">'.$dish['d_name'].'</h4>';
 			$div .= '<p class="dish-price">$ '.$dish['d_price'].'</p>';
 			$div .= '</div></div></a>';
 			echo $div;
+			if ( $length == $key ) {
+				$detail_div = '<div class="detail-block"></div>';
+				echo $detail_div;
+			} else if ( $key % 3 == 2 ) {
+				$detail_div = '<div class="detail-block"></div>';
+				echo $detail_div;
+			}
 		}
 	}
 	?>

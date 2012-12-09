@@ -302,6 +302,10 @@ label[for="female"] {
 .r-desc {
 	padding: 0 40px;
 	margin-bottom: 20px;
+	
+}
+.r-desc:first-letter {
+	margin-left: 40px;
 }
 .r-dishes-wrapper {
 	border-top: 1px solid #d6d6d6;
@@ -311,11 +315,14 @@ label[for="female"] {
 	display: block;
 	color: white;
 }
-.dish-achor,
-.dish {
+.dish-achor {
 	width: 240px;
 	height: 320px;
 	background: #666;
+}
+.dish {
+	width: 240px;
+	height: 320px;
 }
 .dish img {
 	display: block;
@@ -327,7 +334,7 @@ label[for="female"] {
 	height: 80px;
 }
 .dish-name {
-	padding: 10px 5px 0 5px;
+	padding: 10px 5px 0 15px;
 	font-size: 14px;
 	line-height: 20px;
 }
@@ -339,6 +346,27 @@ label[for="female"] {
 	right: 0;
 	text-align: right;
 	padding: 0 30px 5px 0;
+}
+.detail-block {
+	display: none;
+	clear: both;
+	background-color: #91BD49;
+	color: white;
+	padding: 20px 40px;
+}
+.dish-achor-select {
+	background-color: #91BD49;
+}
+.dish-detail-block-cat {
+	font-size: 22px;
+	margin-bottom: 20px;
+}
+.dish-detail-block-desc {
+	font-size: 18px;
+	line-height: 24px;
+}
+.dish-detail-block-desc:first-letter {
+	margin-left: 40px;
 }
 /* @end */
 
