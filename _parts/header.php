@@ -18,6 +18,36 @@ if ( isset($_SESSION['email']) ) {
 		die("How could this happen?");
 	}
 }
+
+
+// load cats from r
+$query = "SELECT DISTINCT r_cat
+		  FROM restaurants";
+$result = mysql_query($query, $mysql_connection);
+$cats = array();
+while ( $row = mysql_fetch_array($result) ) {
+	$cat = trim($row['r_cat']);
+	$small_cat = explode(', ', $cat);
+	$count = count($small_cat);
+	for ($i = 0; $i < $count; $i++) {
+		array_push($cats, $small_cat[$i]);
+	}
+}
+$unique_r_cats = array_unique($cats);
+// load cats from d
+$query = "SELECT DISTINCT d_cat
+		  FROM dishes";
+$result = mysql_query($query, $mysql_connection);
+$cats = array();
+while ( $row = mysql_fetch_array($result) ) {
+	$cat = trim($row['d_cat']);
+	$small_cat = explode(', ', $cat);
+	$count = count($small_cat);
+	for ($i = 0; $i < $count; $i++) {
+		array_push($cats, $small_cat[$i]);
+	}
+}
+$unique_d_cats = array_unique($cats);
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +91,28 @@ if ( isset($_SESSION['email']) ) {
 				<input type="button" id="category-button" class="transition" value="Show Category" />
 				<input type="text" id="search-input" placeholder="Search for Favorite" />
 				<input type="button" id="random-button" class="transition" value="Feeling Hungry" />
+			</div>
+			<div id="category-menu" class="clearfix">
+				<div class="category-menu-r">
+					<div class="category-menu-title">Restaurants Category</div>
+					<ul class="cat-list">
+					<?php
+					foreach ($unique_r_cats as $cat) {
+						echo '<li><a href="list.php?type=r&cat='.$cat.'">'.$cat.'</a></li>';
+					}
+					?>
+					</ul>
+				</div>
+				<div class="category-menu-d">
+					<div class="category-menu-title">Dishes Category</div>
+					<ul class="cat-list">
+					<?php
+					foreach ($unique_d_cats as $cat) {
+						echo '<li><a href="list.php?type=d&cat='.$cat.'">'.$cat.'</a></li>';
+					}
+					?>
+					</ul>
+				</div>
 			</div>
 			<div class="search-show">
 				<div id="search-message"></div>

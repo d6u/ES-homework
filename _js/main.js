@@ -2,6 +2,8 @@
 	var last_input = "";
 	
 	$('#search-input').focus(function () {
+		$('#category-menu').stop().slideUp(); // fold cats menu
+		
 		var that = this;
 		last_input = "";
 		
@@ -91,7 +93,7 @@
 	
 	// show category button
 	$("#category-button").on('click', function () {
-		
+		$('#category-menu').stop().slideToggle();
 	});
 	
 	// random pick restaurant

@@ -78,6 +78,35 @@ a, .transition {
 	height: 40px;
 	position: relative;
 }
+/* @group cats */
+#category-menu {
+	display: none;
+}
+#category-menu a:hover {
+	color: white;
+}
+#category-menu > div {
+	width: 360px;
+	padding-bottom: 20px;
+}
+.category-menu-r {
+	float: left;
+}
+.category-menu-d {
+	float: right;
+}
+.category-menu-title {
+	font-size: 22px;
+	text-align: center;
+	line-height: 42px;
+	color: #333;
+}
+.cat-list {
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+}
+/* @end */
 /* AJAX search show */
 .search-show {
 	overflow: hidden;
@@ -88,7 +117,6 @@ a, .transition {
 	font-size: 22px;
 	line-height: 40px;
 	color: white;
-/*	border-bottom: 1px solid #00A8DE;*/
 }
 .search-result-message {
 	font-size: 34px;
