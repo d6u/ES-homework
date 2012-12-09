@@ -18,7 +18,7 @@ if ( isset($_POST["login_user_email"]) && isset($_POST["login_user_pass"]) ) {
 	if ( $row['hash_pass'] == sha1($_POST['login_user_pass']) ) {
 		$_SESSION["email"] = $email;
 		if ( isset($_POST['rememberme']) && $_POST['rememberme'] == 'forever' ) {
-			setcookie('email', $email, time() + 60*60*24*365);
+			setcookie('email', $email, time() + 60*60*24*365, '/');
 		}
 		redirect_to('index.php');
 	} else {
