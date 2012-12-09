@@ -38,9 +38,9 @@
 			data = {'first': first, 'last': last, 'gender': gender, 'dob': dob, 'email': email};
 		
 		$.post(url, data, function (response) {
-			console.log(response);
 			$("#inner-profile-show").slideDown(200);
 			$("#inner-profile-edit").slideUp(200);
+			location.reload();
 		});
 		event.preventDefault();
 	});

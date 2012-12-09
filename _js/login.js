@@ -41,7 +41,8 @@
 			url = "ajax_support/user_exist.php",
 			data = {'email': email},
 			exist,
-			warning = $('#register-warning');
+			warning = $('#register-warning'),
+			that = this;
 		event.preventDefault();
 		$.post(url, data, function (response) {
 			if ( email == '' ) {
@@ -66,6 +67,7 @@
 			}
 		});
 	});
+	
 	// Login behavior
 	$('.left-block').on('change', 'input[type="text"], input[type="password"]', function () {
 		$('#login-warning').empty();

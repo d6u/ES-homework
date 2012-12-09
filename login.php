@@ -17,7 +17,9 @@ if ( isset($_POST["login_user_email"]) && isset($_POST["login_user_pass"]) ) {
 	$row = mysql_fetch_array($result);
 	if ( $row['hash_pass'] == sha1($_POST['login_user_pass']) ) {
 		$_SESSION["email"] = $email;
-		// if ( isset($_POST["rememberme"]) ) $_SESSION["rememberme"] = $_POST["rememberme"]; // forever
+		if ( isset($_POST['rememberme']) && $_POST['rememberme'] == 'forever' ) {
+			setcookie('email', $email, time() + 60*60*24*365);
+		}
 		redirect_to('index.php');
 	} else {
 		$login_warning = "User email and password does not match.";

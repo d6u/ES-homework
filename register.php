@@ -15,7 +15,7 @@ $login_message_style = "register-introduction";
 if ( isset($_SESSION["email"]) ) {
 	// user already login
 	redirect_to('user_panel.php');
-} else if ( isset($_POST['register_user_email']) ) {
+} else if ( isset($_POST['register_user_email']) && isset($_POST['register_user_pass']) ) {
 	// user register
 	$user_email = trim($_POST['register_user_email']);
 	$user_pass = trim($_POST['register_user_pass']);
@@ -25,6 +25,7 @@ if ( isset($_SESSION["email"]) ) {
 	$result = mysql_query($query, $mysql_connection);
 	if ($result) {
 		$_SESSION["email"] = $user_email;
+		setcookie('email', $user_email, time() + 60*60*24*365, '/');
 	} else {
 		die("How could this happen?");
 	}

@@ -59,7 +59,10 @@ if ( isset($_SESSION['email']) ) {
 				die("How could this happen?");
 			}
 		}
-	}
+		
+		// redirect to self prevent resubmitting form
+		redirect_to("user_panel.php");
+	} // end of submitting changes in profile
 } else {
 	// user not logged in
 	redirect_to("login.php");
@@ -93,7 +96,6 @@ if ($result) {
 	die("How could this happen?");
 }
 ?>
-
 <?php require_once("_parts/header.php"); ?>
 
 <div class="user-inner clearfix">
