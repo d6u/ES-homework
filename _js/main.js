@@ -40,6 +40,10 @@
 				
 				// restaurant
 				if ( json.restaurant != false ) {
+					// restaurant title
+					var li = $(document.createElement('li')).addClass('search-result-title').html("Restaurant");
+					$('#search-result-restaurant-list').append(li);
+					// list item
 					for (var i = 0; i < json.restaurant.length; i++) {
 						var id = json.restaurant[i].r_id,
 							name = json.restaurant[i].r_name,
@@ -55,6 +59,10 @@
 				
 				// dish
 				if ( json.dish != false ) {
+					// dish title
+					var li = $(document.createElement('li')).addClass('search-result-title').html("Dish");
+					$('#search-result-restaurant-list').append(li);
+					// dish item
 					for (var i = 0; i < json.dish.length; i++) {
 						var r_id = json.dish[i].r_id,
 							d_id = json.dish[i].d_id,
@@ -68,7 +76,15 @@
 						$('#search-result-restaurant-list').append(li);
 					}
 				}
+				
+				if ( json.restaurant == false && json.dish == false ) {
+					var li = $(document.createElement('li')).addClass('search-result-message').html("Sorry, we tried but found no result.");
+					$('#search-result-restaurant-list').append(li);
+				}
 			}); // end ajax
-		} // end if
+		} else if ( input == "" && input != last_input ) {
+			last_input = input;
+			$('#search-result-restaurant-list').empty();
+		}
 	}); // end of on key up
 })();

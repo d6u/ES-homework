@@ -88,13 +88,28 @@ a, .transition {
 	font-size: 22px;
 	line-height: 40px;
 	color: white;
-	border-bottom: 1px solid #00A8DE;
+/*	border-bottom: 1px solid #00A8DE;*/
+}
+.search-result-message {
+	font-size: 34px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	padding-bottom: 20px;
+	color: #EF7F31;
+}
+.search-result-title {
+	font-size: 20px;
+	line-height: 30px;
+	height: 30px;
+	text-align: center;
+	color: #91BD49;
+	border-top: 1px solid #00A8DE;
 }
 .search-result-item {
 	height: 44px;
 	font-size: 20px;
 	line-height: 32px;
-	border-bottom: 1px solid #00A8DE;
 	color: white;
 }
 .search-result-item:hover {
