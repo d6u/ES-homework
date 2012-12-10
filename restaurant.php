@@ -27,7 +27,7 @@ if ( !isset($_GET['id']) ) {
 		$desc = $row['r_desc'];
 	}
 	if ( $row['r_pic_url'] != "" ) {
-		$pic_url = "restaurant_image/".$row['r_pic_url']; // need extension
+		$pic_url = "restaurant_image/".$row['r_pic_url'].".jpg"; // need extension
 	} else {
 		$pic_url = "_image/restaurant_default.jpeg";
 	}
@@ -71,7 +71,7 @@ if ( !isset($_GET['id']) ) {
 			if ( $dish['d_pic_url'] == "" ) {
 				$div .= '<img src="_image/dish_default.jpeg" alt="Dish Picture" />';
 			} else {
-				$div .= '<img src="dish_image/'.$dish['d_pic_url'].'" alt="Dish Picture" />';
+				$div .= '<img src="dish_image/'.$dish['d_pic_url'].'.jpg" alt="Dish Picture" />';
 			}
 			$div .= '<div class="dish-info">';
 			$div .= '<h4 class="dish-name">'.$dish['d_name'].'</h4>';
