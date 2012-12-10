@@ -3,7 +3,7 @@
 <?php require_once("_parts/connection.php"); ?>
 <?php
 $login_title = "Register Successful";
-$login_header = "Congratulations! You are now a member of Restaurant Review Site!";
+$login_header = "Congratulations! You are now a member of Razor Eat!";
 
 $login_message = "Please take some time to complete profiles, we can do this later.";
 $login_message .= "</br>";

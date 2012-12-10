@@ -2,7 +2,7 @@
 <?php require_once("_parts/functions.php"); ?>
 <?php
 $login_title = "Login/Register";
-$login_header = "Welcome to Restaurant Review Site";
+$login_header = "Welcome to Razor Eat";
 $login_message = "This is the login/register page, please enter your username and password in related field.";
 $login_message_style = "banner-introduction";
 
@@ -31,7 +31,7 @@ if ( isset($_POST["login_user_email"]) && isset($_POST["login_user_pass"]) ) {
 } elseif ( isset($_GET['logout']) && $_GET['logout'] == 1 ) {
 	// redirected from logout
 	$login_title = "Login/Register";
-	$login_header = "You have successfully logged out Restaurant Review Site";
+	$login_header = "You have successfully logged out Razor Eat";
 	$login_message = "We will miss you...";
 	$login_message_style = "banner-introduction";
 }

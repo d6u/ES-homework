@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $login_title; ?> | Restaurant Review Site</title>
+	<title><?php echo $login_title; ?> | Razor Eat</title>
 	<meta name="viewport" content="width=device-width">
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="_css/css-reset.css">

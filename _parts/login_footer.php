@@ -1,13 +1,9 @@
-</div>
+		</div>
 		<!-- MIDDLE END -->
-		
 		<div class="footer">
 			<p class="footer-copyright">@Copyright Reserved</p>
 			<ul class="footer-menu">
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
+				<li class="footer-menu-item"><a href="about.php">About</a></li>
 			</ul>
 		</div>
 	</div>

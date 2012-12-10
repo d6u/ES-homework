@@ -3,10 +3,7 @@
 		<div class="footer">
 			<p class="footer-copyright">@Copyright Reserved</p>
 			<ul class="footer-menu">
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
-				<li class="footer-menu-item"><a href="#">About</a></li>
+				<li class="footer-menu-item"><a href="about.php">About</a></li>
 			</ul>
 		</div>
 	</div>
@@ -19,6 +16,7 @@
 			echo '<script src="_js/user_panel.js"></script>';
 		case 'index':
 		case 'restaurant':
+		case 'about':
 			echo '<script src="_js/main.js"></script>';
 			break;
 	}

@@ -33,6 +33,8 @@ a, .transition {
 .banner {
 	width: 100%;
 	height: 200px;
+	background: url('../_image/website_logo.png') no-repeat 200px 10px;
+	background-size: 200px;
 }
 .banner-logo {
 	font-size: 42px;
@@ -428,7 +430,70 @@ label[for="female"] {
 	padding: 10px;
 }
 /* @end */
+/* @group About */
+.about {
+	font-size: 14px;
+	line-height: 1.6;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	padding: 30px;
+}
+.about h1,
+.about h2, 
+.about h3, 
+.about h4, 
+.about h5, 
+.about h6 {
+	margin: 20px 0 10px;
+	padding: 0;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: text;
+	position: relative;
+}
+.about h1 {
+	font-size: 28px;
+	color: black;
+}
+.about h2 {
+	font-size: 24px;
+	border-bottom: 1px solid #cccccc;
+	color: black;
+}
 
+.about h3 {
+	font-size: 18px;
+}
+
+.about h4 {
+	font-size: 16px; 
+}
+.about h5 {
+	font-size: 14px;
+}
+.about h6 {
+	color: #777777;
+	font-size: 14px;
+}
+.about ul {
+	list-style: disc;
+	padding-left: 20px;
+}
+.about p, 
+.about blockquote,
+.about ul,
+.about ol,
+.about dl,
+.about li,
+.about table,
+.about pre {
+	margin: 15px 0; 
+}
+.about strong {
+	font-weight: bold;
+}
+/* @end */
 
 
 

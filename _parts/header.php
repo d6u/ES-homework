@@ -19,7 +19,6 @@ if ( isset($_SESSION['email']) ) {
 	}
 }
 
-
 // load cats from r
 $query = "SELECT DISTINCT r_cat
 		  FROM restaurants";
@@ -34,6 +33,7 @@ while ( $row = mysql_fetch_array($result) ) {
 	}
 }
 $unique_r_cats = array_unique($cats);
+
 // load cats from d
 $query = "SELECT DISTINCT d_cat
 		  FROM dishes";
@@ -49,12 +49,11 @@ while ( $row = mysql_fetch_array($result) ) {
 }
 $unique_d_cats = array_unique($cats);
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Restaurant Review Site</title>
+	<title>Razor Eat</title>
 	<meta name="viewport" content="width=device-width">
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="_css/css-reset.css">
@@ -66,11 +65,11 @@ $unique_d_cats = array_unique($cats);
 	<div id="wrapper">
 		<div class="banner">
 			<div class="banner-logo">
-				<a href="index.php">Restaurant Review</a>
+				<a href="index.php">Razor Eat</a>
 			</div>
 			<ul class="banner-menu">
 				<li class="banner-menu-item"><a href="index.php">Home</a></li>
-				<li class="banner-menu-item"><a href="#">About</a></li>
+				<li class="banner-menu-item"><a href="about.php">About</a></li>
 				<li class="banner-menu-item">
 				<?php if ( isset($display_name) ): ?>
 					<span>Hello! </span>
