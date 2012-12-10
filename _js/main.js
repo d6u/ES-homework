@@ -134,8 +134,8 @@
 		});
 	});
 	
+	
 	// jump to dish
 	var jumpToDish = window.location.hash.replace('#', '');
-	console.log(jumpToDish);
 	$('#'+jumpToDish).trigger('click');
 })();

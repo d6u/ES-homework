@@ -369,7 +369,65 @@ label[for="female"] {
 	margin-left: 40px;
 }
 /* @end */
-
+/* @group comment */
+.comment-wrapper {
+	padding: 30px;
+	border-top: 5px solid #EA2B3B;
+}
+.comment-wrapper-title {
+	line-height: 22px;
+	color: #999;
+	font-size: 14px;
+}
+.comment-block {
+	padding-top: 15px;
+	border-top: 1px dashed #00A8DE;
+	margin-bottom: 15px;
+}
+.comment-info {
+	font-size: 16px;
+}
+.comment-title {
+	margin-left: 20px;
+	color: #666;
+}
+.comment-rating {
+	margin-left: 20px;
+	color: #333290;
+}.comment-rating::after {
+	content: " Star";
+}
+.comment-dish {
+	float: right;
+}
+.comment-content {
+	border-top: 1px solid #333;
+	margin-top: 15px;
+	padding-top: 15px;
+}
+.comment-content:first-letter {
+	margin-left: 40px;
+}
+/* @end */
+/* @group user comment */
+.user-comment-area {
+	padding: 10px 30px 30px;
+	border-top: 5px solid #EA2B3B;
+}
+.user-comment-area-title {
+	color: #999;
+	margin-bottom: 20px;
+}
+.user-comment-meta {
+	
+}
+.user-comment-area textarea {
+	width: 640px;
+	font-size: 16px;
+	line-height: 28px;
+	padding: 10px;
+}
+/* @end */
 
 
 

@@ -15,12 +15,11 @@
 	<script>window.jQuery || document.write('<script src="_js/jquery-1.8.2.min.js"><\/script>')</script>
 	<?php
 	switch ($file_name) {
+		case 'user_panel':
+			echo '<script src="_js/user_panel.js"></script>';
 		case 'index':
 		case 'restaurant':
 			echo '<script src="_js/main.js"></script>';
-			break;
-		case 'user_panel':
-			echo '<script src="_js/user_panel.js"></script>';
 			break;
 	}
 	?>

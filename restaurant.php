@@ -89,6 +89,83 @@ if ( !isset($_GET['id']) ) {
 	}
 	?>
 </div>
-
+<div class="comment-wrapper">
+	<div class="comment-wrapper-title">User Comments</div>
+	<?php 
+	$query = "SELECT u.first, u.email, c.title, c.r_rating, c.d_id, c.content, c.post_date
+			  FROM comments c
+			  JOIN users u
+			  WHERE r_id = '{$_GET['id']}'
+			  AND c.user_id = u.user_id
+			  ORDER BY c.post_date";
+	$result = mysql_query($query, $mysql_connection);
+	if ( $result ) {
+		while ( $row = mysql_fetch_array($result) ) {
+			$echo = '<div class="comment-block">';
+			$echo .= '<div class="comment-info clearfix">';
+			// name
+			if ( $row['first'] == "" ) {
+				$first = $row['email'];
+			} else {
+				$first = $row['first'];
+			}
+			$echo .= '<span class="comment-user-name">'.$first.'</span>';
+			// title
+			$echo .= '<span class="comment-title">'.$row['title'].'</span>';
+			// rating
+			if ( $row['r_rating'] != "" ) {
+				$echo .= '<span class="comment-rating">'.$row['r_rating'].'</span>';
+			}
+			// dish
+			if ( $row['d_id'] != "" ) {
+				$dish_query = "SELECT d_name
+							   FROM dishes
+							   WHERE d_id = '{$row['d_id']}'";
+				$dish_result = mysql_query($dish_query, $mysql_connection);
+				$dish_row = mysql_fetch_array($dish_result);
+				$echo .= '<span class="comment-dish">'.$dish_row['d_name'].'</span>';
+			}
+			$echo .= '</div>';
+			// content
+			$echo .= '<div class="comment-content">'.$row['content'].'</div>';
+			$echo .= '</div>';
+			echo $echo;
+		}
+	}
+	?>
+</div>
+	<?php if ( isset($_SESSION['email']) ): ?>
+	<form class="user-comment-area" method="post" action="comment_post.php">
+		<input type="hidden" name="r_id" value="<?php echo $_GET['id']; ?>" />
+		<div class="user-comment-area-title">Please leave your comment here</div>
+		<div class="user-comment-meta clearfix">
+			<input type="text" name="title" placeholder="Optional Title" />
+			<span>Rating: </span>
+			<select name="rating">
+				<option value="5">5</option>
+				<option value="4">4</option>
+				<option value="3">3</option>
+				<option value="2">2</option>
+				<option value="1">1</option>
+				<option value="0">0</option>
+			</select>
+				<?php
+				if ( !is_null($dishes) ) {
+					$dish_echo = '</br><span>Related dish: </span>';
+					$dish_echo .= '<select name="related_dish">';
+					foreach ($dishes as $dish) {
+						$dish_echo .= "<option value=\"{$dish['d_id']}\">{$dish['d_name']}</option>";
+					}
+					$dish_echo .= '</select>';
+					echo $dish_echo;
+				}
+				?>
+		</div>
+		<div class="user-comment-content">
+			<textarea name="content"></textarea>
+			<input type="submit" name="submit" value="Submit" id="user-comment-submit" class="blue-button" />
+		</div>
+	</form>
+	<?php endif; ?>
 <?php $file_name = basename(__FILE__, '.php'); ?>
 <?php require_once("_parts/footer.php");
