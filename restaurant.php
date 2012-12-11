@@ -62,6 +62,26 @@ if ( !isset($_GET['id']) ) {
 	<hr class="hr-line"/>
 	<p class="r-desc"><?php if (isset($desc)) echo $desc; ?></p>
 </div>
+<?php
+// promotion CRUD
+$promo_query = "SELECT p_cat, p_desc, exp_date
+				FROM promos
+				WHERE r_id = '{$_GET['id']}'
+				ORDER BY p_cat";
+$promo_result = mysql_query($promo_query, $mysql_connection);
+if ( mysql_num_rows($promo_result) > 0 ) {
+	$echo = '<div class="r-promo-wrapper">';
+	while ( $promo_row = mysql_fetch_array($promo_result) ) {
+		$echo .= '<div class="r-promo-item">';
+		$echo .= '<p class="r-promo-cat">'.$promo_row['p_cat'].'</p>';
+		$echo .= '<p class="r-promo-desc">'.$promo_row['p_desc'].'</p>';
+		$echo .= '<p class="r-promo-expire">'.$promo_row['exp_date'].'</p>';
+		$echo .= '</div>';
+	}
+	$echo .= '</div>';
+	echo $echo;
+}
+?>
 <div class="r-dishes-wrapper clearfix">
 	<?php 
 	if ( !is_null($dishes) ) {
@@ -142,6 +162,7 @@ if ( !isset($_GET['id']) ) {
 			<input type="text" name="title" placeholder="Optional Title" />
 			<span>Rating: </span>
 			<select name="rating">
+				<option value="">No Rating</option>
 				<option value="5">5</option>
 				<option value="4">4</option>
 				<option value="3">3</option>
@@ -153,6 +174,7 @@ if ( !isset($_GET['id']) ) {
 				if ( !is_null($dishes) ) {
 					$dish_echo = '</br><span>Related dish: </span>';
 					$dish_echo .= '<select name="related_dish">';
+					$dish_echo .= '<option value="">No Dish</option>';
 					foreach ($dishes as $dish) {
 						$dish_echo .= "<option value=\"{$dish['d_id']}\">{$dish['d_name']}</option>";
 					}

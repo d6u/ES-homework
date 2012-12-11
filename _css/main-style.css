@@ -304,11 +304,40 @@ label[for="female"] {
 .r-desc {
 	padding: 0 40px;
 	margin-bottom: 20px;
-	
 }
 .r-desc:first-letter {
 	margin-left: 40px;
 }
+/* @group Promotion */
+.r-promo-wrapper {
+	padding: 40px;
+	background-color: #9C298C;
+	color: white;
+}
+.r-promo-item {
+	border: 2px dashed white;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.r-promo-item:last-child {
+	margin-bottom: 0;
+}
+.r-promo-cat {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+.r-promo-desc {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.r-promo-expire {
+	font-size: 16px;
+	color: #f9c7f2;
+}
+.r-promo-expire::before {
+	content: 'Expiration Date: ';
+}
+/* @end */
 .r-dishes-wrapper {
 	border-top: 1px solid #d6d6d6;
 }
