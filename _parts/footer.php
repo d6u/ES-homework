@@ -16,6 +16,7 @@
 			echo '<script src="_js/user_panel.js"></script>';
 		case 'index':
 		case 'restaurant':
+		case 'list':
 		case 'about':
 			echo '<script src="_js/main.js"></script>';
 			break;

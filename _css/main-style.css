@@ -304,6 +304,7 @@ label[for="female"] {
 .r-desc {
 	padding: 0 40px;
 	margin-bottom: 20px;
+	line-height: 1.2;
 }
 .r-desc:first-letter {
 	margin-left: 40px;
@@ -523,7 +524,48 @@ label[for="female"] {
 	font-weight: bold;
 }
 /* @end */
-
+/* @group List */
+.list-wrapper {
+	padding: 40px;
+}
+.list-cat-title {
+	font-size: 28px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #333;
+}
+.list-wrapper > a {
+	display: block;
+	margin-top: 10px;
+	padding: 5px;
+}
+.list-wrapper > a:hover {
+	background: #ddeac7;
+}
+.list-r-name {
+	font-size: 22px;
+	margin-bottom: 5px;
+}
+.list-restaurant-name {
+	font-size: 18px;
+	padding-left: 30px;
+	margin-bottom: 5px;
+	color: #333;
+	text-decoration: underline;
+}
+.list-restaurant-name::before {
+	content: 'Restaurant: ';
+}
+.list-r-cat {
+	margin-bottom: 5px;
+	padding-left: 30px;
+	color: #333;
+}
+.list-r-addr {
+	padding-left: 30px;
+	font-size: 14px;
+	color: #333;
+}
+/* @end */
 
 
 
